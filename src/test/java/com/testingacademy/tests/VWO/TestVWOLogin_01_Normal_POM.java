@@ -26,4 +26,10 @@ public class TestVWOLogin_01_Normal_POM {
         Assert.assertEquals(error_msg, error_msg);
         driver.quit();
     }
+    @Owner("Aditi")
+    @Description("Verify valid email, paswrod")
+    @Test
+    public void test_positive_vwo_login() {
+
+    }
 }
