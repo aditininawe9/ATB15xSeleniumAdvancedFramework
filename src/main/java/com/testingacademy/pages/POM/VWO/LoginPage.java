@@ -1,6 +1,8 @@
 package com.testingacademy.pages.POM.VWO;
 
 import com.testingacademy.utils.WaitHelper;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,5 +30,11 @@ public class LoginPage {
         WaitHelper.checkVisibility(driver, error_message);
         String errorMsg = driver.findElement(error_message).getText();
         return errorMsg;
+    }
+
+    public void loginToValidCreds(String usr, String pwd) {
+        driver.findElement(username).sendKeys(usr);
+        driver.findElement(password).sendKeys(pwd);
+        driver.findElement(submitBtn).click();
     }
 }

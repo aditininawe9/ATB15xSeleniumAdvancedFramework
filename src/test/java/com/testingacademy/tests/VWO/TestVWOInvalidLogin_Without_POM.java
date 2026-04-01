@@ -28,6 +28,5 @@ public class TestVWOInvalidLogin_Without_POM {
 
         WebElement Start_a_free_trial = driver.findElement(By.linkText("Start a free trial"));
         Start_a_free_trial.click();
-
     }
 }

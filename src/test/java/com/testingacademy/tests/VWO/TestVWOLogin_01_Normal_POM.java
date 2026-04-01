@@ -1,5 +1,6 @@
 package com.testingacademy.tests.VWO;
 
+import com.testingacademy.pages.POM.VWO.DashboardPage;
 import com.testingacademy.pages.POM.VWO.LoginPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
@@ -26,10 +27,18 @@ public class TestVWOLogin_01_Normal_POM {
         Assert.assertEquals(error_msg, error_msg);
         driver.quit();
     }
-    @Owner("Aditi")
-    @Description("Verify valid email, paswrod")
-    @Test
-    public void test_positive_vwo_login() {
 
+    @Owner("Aditi")
+    @Description("Verify valid email, password, dashboard page is shown")
+    @Test
+
+    public void test_positive_vwo_login() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://app.vwo.com");
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.loginToValidCreds("cxh04@tempumail.cc", "ILoveDrive#08");
+        DashboardPage dashboardPage = new DashboardPage(driver);
+        String userNameLoggedIn = dashboardPage.loggedInUserName();
+        driver.quit();
     }
 }
