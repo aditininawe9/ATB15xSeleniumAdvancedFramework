@@ -29,6 +29,11 @@ public class WaitHelper {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public static WebElement checkClickable(WebDriver driver, By locator, int timeout) {
+        return new WebDriverWait(driver, Duration.ofSeconds(timeout))
+                .until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
     public static void checkVisibility(WebDriver driver, By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
