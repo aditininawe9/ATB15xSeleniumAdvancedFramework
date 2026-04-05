@@ -1,10 +1,8 @@
-package com.testingacademy.pages.POM.VWO;
+package com.testingacademy.pages.POM.VWO.normalPOM;
 
 import com.testingacademy.utils.WaitHelper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class FreetrialPage {
     WebDriver driver;

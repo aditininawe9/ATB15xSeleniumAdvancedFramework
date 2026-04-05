@@ -1,13 +1,16 @@
-package com.testingacademy.pages.POM.VWO;
+package com.testingacademy.pages.POM.VWO.normalPOM;
 
 import com.testingacademy.utils.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import com.testingacademy.base.CommonToAllPage;
 
-public class LoginPage {
+import static com.testingacademy.driver.DriverManager.getDriver;
+
+public class LoginImprovedPOM extends CommonToAllPage {
     WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
+    public LoginImprovedPOM(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -20,18 +23,21 @@ public class LoginPage {
 
     //Page Actions
     public String loginToInvalidCreds(String usr, String pwd) {
-        driver.findElement(username).sendKeys(usr);
-        driver.findElement(password).sendKeys(pwd);
-        driver.findElement(submitBtn).click();
+        enterInput(username, usr);
+        enterInput(password, pwd);
+        clickElement(submitBtn);
 
-        WaitHelper.checkVisibility(driver, error_message);
+        WaitHelper.checkVisibility(getDriver(), error_message);
         String errorMsg = driver.findElement(error_message).getText();
         return errorMsg;
     }
 
     public void loginToValidCreds(String usr, String pwd) {
-        driver.findElement(username).sendKeys(usr);
-        driver.findElement(password).sendKeys(pwd);
-        driver.findElement(submitBtn).click();
+        openVWOUrl();
+        enterInput(username, usr);
+        enterInput(password, pwd);
+        clickElement(submitBtn);
+
+        WaitHelper.waitJVM(5000);
     }
 }

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyReader {
+public class PropertiesReader {
     public static String readKey(String key) {
         Properties p;
         String user_dir =  System.getProperty("user.dir");
